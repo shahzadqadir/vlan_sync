@@ -2,7 +2,6 @@
 
 import netmiko
 import mysql.connector
-from getpass import getpass
 
 def pull_db_vlans(hostname, username, password, db):
     """
@@ -93,7 +92,7 @@ def pull_switch_vlans(hostname, username, password):
 db_vlans = pull_db_vlans("localhost", "sqadir", "cisco123", "vlandb")
 sw_hostname = input("Swith IP: ")
 sw_username = input("Username: ")
-sw_password = getpass("Password: ")
+sw_password = input("Password: ")
 
 switch_vlans = pull_switch_vlans(sw_hostname, sw_username, sw_password)
 
