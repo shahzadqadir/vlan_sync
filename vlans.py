@@ -65,15 +65,15 @@ def remove_vlans_db(hostname, username, password, db, vlans_dict):
     except:
         pass
 
-def pull_switch_vlans():
+def pull_switch_vlans(hostname, username, password):
     """
     Pull Vlan information and return a vlan-id, name dictionary.
     """
     switch1 = {
         "device_type": "cisco_ios",
-        "host": "192.168.201.1",
-        "username": "shahzad",
-        "password": "cisco123"        
+        "host": hostname,
+        "username": username,
+        "password": password       
     }
     with netmiko.ConnectHandler(**switch1) as cli_handle:
         output = cli_handle.send_command("show vlan brief", use_textfsm=True)
@@ -86,9 +86,15 @@ def pull_switch_vlans():
     
     return vlans_dict
 
+#############################################
+# Function calls and main logic
 
 db_vlans = pull_db_vlans("localhost", "sqadir", "cisco123", "vlandb")
-switch_vlans = pull_switch_vlans()
+sw_hostname = input("Swith IP: ")
+sw_username = input("Username: ")
+sw_password = input("Password: ")
+
+switch_vlans = pull_switch_vlans(sw_hostname, sw_username, sw_password)
 
 
 
