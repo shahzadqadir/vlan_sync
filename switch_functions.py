@@ -1,5 +1,4 @@
 import netmiko
-from getpass import getpass
 
 def pull_switch_vlans(hostname, username, password):
     """
