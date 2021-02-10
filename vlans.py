@@ -1,4 +1,4 @@
-#!/home/python/venvs/vlan_sync/bin/python
+#!/usr/bin/env python3
 
 from getpass import getpass
 
