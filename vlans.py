@@ -5,7 +5,7 @@ from getpass import getpass
 from mysql_integration import create_database, pull_db_vlans, add_vlans_db, remove_vlans_db
 from switch_functions import pull_switch_vlans
 
-# get datbase username and password
+# get mysql username and password
 db_username = input("Datbase username: ")
 db_password = getpass("Database password: ")
 
